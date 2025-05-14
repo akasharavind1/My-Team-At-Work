@@ -1,0 +1,94 @@
+// table {
+//     table-layout: fixed;
+//     width: 600px;
+//     border: 1px solid grey;
+//   }
+  
+//   th {
+//     border: 1px solid grey;
+//     width: 300px;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//   }
+
+//   h1{
+//     color:grey;
+//   }
+.table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+ .searchinp{
+  width: 200px;
+  height: 70px,
+ } 
+  .table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  .firstName{
+    font-family: Arial;
+    font-size: medium;
+
+  }
+  
+  .table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .table tr:hover {background-color: #ddd;}
+  
+  .table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: grey;
+    color: white;
+  }
+  .delete button{
+    color: blue;
+    // background-color:
+  }
+
+  .alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
+
+  body {
+    background: linear-gradient(-45deg, #f4b39f, #fb8cb6, #7fceeb, #90fde4);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+        background-position: 0% 30%;
+    }
+    20% {
+        background-position: 100% 30%;
+    }
+    40% {
+        background-position: 0% 30%;
+    }
+  }
+

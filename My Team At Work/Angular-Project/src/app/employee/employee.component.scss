@@ -1,0 +1,452 @@
+
+// table {
+//   // font-family: arial, sans-serif;
+//   // border-collapse: collapse;
+//   width: 50%;
+// }
+
+// td, th {
+//   border: 1px solid #dddddd;
+//   text-align: left;
+//   padding: 8px;
+// }
+
+// tr:nth-child(even) {
+//   background-color: #dddddd;
+// }
+
+table.zigzag {  
+  font-family:sans-serif;
+  th, td {
+    padding:.25em .5em;
+    text-align:left;
+    &:nth-child(2) {
+      text-align:right;
+    }
+  }
+  td {
+    background-color:#eee;    
+  }
+  th {
+    background-color:#009;
+    color:#fff;
+  }
+}
+
+.zigzag {
+  border-collapse:separate;
+  border-spacing:.25em 1em;
+  tbody tr:nth-child(odd) {
+    transform:rotate(2deg);
+  }
+  thead tr,
+  tbody tr:nth-child(even) {
+    transform:rotate(-2deg);
+  }
+}
+
+.tableStyle {
+  border-radius: 10px;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  
+}
+
+.tableStyle thead tr {
+  background-color: #645DAC;
+  color: #ffffff;
+  text-align: left;
+}
+.tableStyle th,
+.tableStyle td {
+    padding: 12px 15px;
+} 
+.tableStyle tbody tr {
+  border-bottom: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.tableStyle tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.tableStyle tbody tr:last-of-type {
+  border-bottom: 2px solid #645DAC;
+}
+
+.tableStyle tbody tr.active-row {
+  font-weight: bold;
+  color: #0088D2;
+  border-radius: 10px;
+
+}
+.tableStyle tbody tr:hover{
+  background-color: rgb(172, 169, 169);
+}
+
+.mat-calendar{
+  background-color: rgb(235, 230, 230);
+}
+.mat-calendar-body-cell {
+  background-color:transparent!important;
+
+}
+.mat-calendar-body-cell.selected
+{
+  background-color:green!important;
+  border-radius: 50%;
+  // width:auto;
+}
+
+.drop-calendar
+{
+  width:30rem;
+}
+
+.matmenu{
+  height: 500px;
+  width: 500px;
+  border: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.matmenu:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.button {
+  border: none;
+  color: grey;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button {
+  background-color: grey; 
+  color: black; 
+  border: 2px solid BLACK;
+}
+.button:hover {
+  background-color: #4CAF50;
+  color: black;
+}
+
+// body {
+//   font-family: Arial, sans-serif;
+// }
+
+h2{
+  font-family: Arial, sans-serif;
+
+}
+
+.img{
+  width:40px;
+}
+
+//flexbox calendar
+
+.container{
+  animation: movedown 1s linear 1;
+ 
+  .header{
+    
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .day{
+          flex: 1;
+          border-radius: 25px;
+          border: 2px solid transparent;
+          background: #645DAC;
+          color: #fff;
+          text-align: center;
+          width: 14.28%;
+          font-weight: bold;
+      }
+      .dayOff{
+        flex: 1;
+          border-radius: 25px;
+          border: 2px solid transparent;
+          background:#fff ;
+          color: #645DAC;
+          text-align: center;
+          width: 14.28%;
+          font-weight: bold;
+      }
+  }
+  .content{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+      .date_box{
+          flex: 0 0 14.28%;
+          height: 5rem;
+          text-align: center;
+          border: 1px solid gray;
+          background-color:rgb(213, 234, 241);
+          position: relative;
+          .date{
+              position: absolute;
+              top: 8px;
+          right:5px;
+          font-size: 13px;
+          font-weight: 500;
+          background: #0088D2;
+          color: white;
+          border-radius: 25px;
+          width: 1.5rem;
+          height: 1.5rem;
+          }
+          .count{
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+            font-size: 35px; 
+            font-family: "Audiowide", sans-serif; 
+            text-shadow: 2px 2px #0088D2;
+          }
+          
+      }
+  }
+}
+@keyframes movedown {
+  
+  0%{
+    transform: translateY(-100px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+
+}
+.title {
+  font-weight: 700;
+  font-size: 1.0rem;
+  animation: movedown1 2s linear 1;
+}
+@keyframes movedown1 {
+  
+  0%{
+    transform: translateY(-100px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+
+}
+
+.buttonForSchedule {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.buttonForSchedule .tooltiptext {
+  visibility: hidden;
+  width: 170px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  // padding: 5px 0;
+  height:60px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  font-family: sans-serif;
+}
+
+.buttonForSchedule:hover .tooltiptext {
+  visibility: visible;
+  top: -5px;
+  left: 105%;
+}
+
+
+.date_box{
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.date_box .empAvail{
+
+  visibility: hidden;
+  width: auto;
+  background-color: #0088D2;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  padding-right: 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  font-family: sans-serif;
+
+}
+
+.date_box:hover .empAvail{
+  visibility: visible;
+  top: -5px;
+  left: 30%;
+
+}
+
+.submitBtn {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  background-color: #FFBA00;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.submitBtn:hover {background-color: #F56F02;
+font-size:26px;
+}
+
+.submitBtn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.body{
+  // background-image: url("../../assets/img/comcastLogo.png");
+  background-color: lightblue;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #f4b39f, #fb8cb6, #7fceeb, #90fde4);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 30%;
+    }
+    20% {
+        background-position: 100% 30%;
+    }
+    40% {
+        background-position: 0% 30%;
+    }
+}
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+.list-choice{
+  width:300px;
+  margin:1em auto;
+  position: relative;
+  cursor: pointer;  
+}
+.list-choice input[type="radio"]{
+  position:absolute;
+  left:-9999px;
+}
+
+.list-choice-title {
+width: 100%;
+display: block;
+background:#00B345;
+text-align: center;
+padding: 0.55em 1em;
+box-sizing: border-box;
+color: #FFF;
+// text-shadow: 0 1px 0 #CACACA;
+border-radius: 0.2em;
+}
+.list-choice:hover .list-choice-title {
+border-radius:0.2em 0.2em 0 0;
+}
+.list-choice-objects label:nth-last-of-type(1) span{
+  border-radius:0 0 0.2em 0.2em;
+}
+.list-choice input[type="radio"] + span {
+color: #FFF;
+background: #D8D8D8;
+padding: 0.55em 1em;
+display: block;
+text-align: center;
+box-sizing: border-box;
+cursor: pointer;
+width: 100%;
+}
+.list-choice-objects {
+position: absolute;
+top: 0;
+padding-top: 2.1em;
+box-sizing: border-box;
+width: 100%;
+overflow: hidden;
+max-height: 0;
+transition: all 250ms ease;
+}
+.list-choice:hover .list-choice-objects  input[type="radio"] + span {
+position: relative;
+top: 0;
+transition: all 250ms ease-in-out;
+}
+.list-choice:hover input[type="radio"] + span:hover {
+background:#BBB;
+}
+.list-choice:hover input[type="radio"]:checked + span:hover {
+background:#74D68E;
+}
+.list-choice input[type="radio"]:checked + span {
+background: #74D68E;
+position: absolute;
+top: 0em;
+border-radius: 0.2em;
+}
+.list-choice:hover input[type="radio"]:checked + span {
+border-radius: 0;
+}
+.list-choice:hover .list-choice-objects label:nth-last-of-type(1) input[type="radio"]:checked + span{
+  border-radius:0 0 0.2em 0.2em;
+}
+
+.list-choice:hover .list-choice-objects {
+max-height: fit-content;
+}

@@ -1,0 +1,106 @@
+<body>
+<div class="cssBackground">
+  <button class="title" type="submit" style="float: right;" routerLink="/employee/{{employee.id}}" mat-raised-button color="warn"><mat-icon>home</mat-icon>Back</button>
+<br>
+    <h2><u>Change your Password</u></h2>
+
+
+    <div>
+        <table class="tableStyle">
+          <thead>
+          <tr>
+            <th>First Name:</th>&nbsp;
+            <!-- <th>Id:</th>&nbsp; -->
+            <th>Last Name:</th>&nbsp;
+            <th>Email:</th>&nbsp;
+            <th>Employee Id:</th>
+             <!-- <th>Attendance %</th> -->
+            <!-- <th>Flag</th>  -->
+            <th>Password:</th>&nbsp;
+
+        </tr>
+        </thead>
+        
+        <tbody>
+          <tr class="active-row" style="color:white; background-color: black;" *ngIf="employee">
+        
+          
+            <td>{{employee.firstName | uppercase}}&nbsp;&nbsp;&nbsp;<i  class="fa fa-address-card-o" style="font-size:24px;color:red"></i></td>&nbsp;
+            <!-- <td>{{employees.id}}</td>&nbsp; -->
+            
+            <td>{{employee.lastName | uppercase}}</td>&nbsp;
+        
+            <td>{{employee.mailID}}</td>&nbsp;
+            <td>{{employee.employeeId}}</td>&nbsp;
+            <!-- <td> </td> -->
+            <!-- <td>
+              <ng-container [ngSwitch]="true">
+                <ng-container *ngSwitchCase="this.flag==0"><img class="img" src="assets/img/greenflag.png"  ></ng-container>
+                <ng-container *ngSwitchCase="this.flag==1"><img class="img" src="assets/img/yellowflag.jpg"  ></ng-container>
+                <ng-container *ngSwitchCase="this.flag==2"><img class="img" src="assets/img/redflag.jpg"  ></ng-container>
+              </ng-container>
+            </td>  -->
+
+
+            
+            <a [title]="'Click here to update'" (click)="openDialog()"  mat-raised-button color="primary"><i class="fa fa-edit">EDIT</i></a>
+        </tr>
+        </tbody>
+        
+        
+        </table>
+        </div>
+        </div>
+
+        <ng-template  #dialogRef>
+          <div class="dialogBox">
+            <h3><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Provide your current password</u></b></h3>
+           
+<form [formGroup]="updatePasswordForm">
+  
+  <!-- <div class="container">
+    <br>
+    <label for="fname"><b>First Name:</b></label>
+    <input type="text" [readonly]="!editable"   name="fname" required formControlName="firstName" >
+    <label for="lname"><b>Last Name:</b></label>
+   <input required type="text" [readonly]="!editable"  name="lname" required formControlName="lastName"> 
+   <label for="Email"><b>E-mail Id </b></label>
+   <input type="text" [readonly]="!editable" name="Email" required formControlName="mailID" >
+   <label for="EmployeeId"><b>EmployeeId </b></label>
+   <input type="text"  [readonly]="!editable"  name="EmployeeId" required formControlName="employeeId"><br>
+   <label for="roles"><b>Roles </b></label>
+   <select formControlName="roles" id="role" name="role">
+    <option value="user" >User</option>
+  </select> -->
+
+  <form [formGroup]="passwordMatch">
+    <label for="psw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current Password:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input required placeholder="Enter your Password" type=password name="psw" required formControlName="password" >&nbsp;&nbsp;&nbsp;&nbsp;
+    <button (click)="validatePassword()" class="sub"  type="submit"mat-raised-button color="primary" >Validate</button>&nbsp;&nbsp;
+    <span *ngIf="validateSuccess==true" style="color:green;"><mat-icon>done</mat-icon>Success</span>
+    <span *ngIf="validateFail==true" style="color:red;">Failed</span>
+  </form><br><br>
+
+  <form [formGroup]="passwordChange" *ngIf="validateSuccess==true" >
+    <label for="newpsw"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Password:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input required placeholder="Enter your new Password" type=password  name="newpsw" required formControlName="password" >
+
+  </form>
+ 
+  <br>
+  <br>
+  <br>
+  
+    <div style="float:left">
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button (click)="updatePassword()" type="submit"mat-raised-button color="primary" >Submit</button><br><br>
+  </div>
+  <div style="float:right">
+   <button routerLink="/employeeprofile/{{employee.id}}"  (click)="cancelDialog()" type="submit"mat-raised-button color="warn" >Close</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+  </div>
+ 
+
+ </form>
+</div> 
+</ng-template>
+    
+</body>

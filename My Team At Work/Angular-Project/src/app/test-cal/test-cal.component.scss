@@ -1,0 +1,39 @@
+.container{
+    .header{
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .day{
+            flex: 1;
+            border: 2px solid transparent;
+            background: gray;
+            color: #fff;
+            text-align: center;
+            width: 14.28%;
+        }
+    }
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        .date_box{
+            flex: 0 0 14.28%;
+            height: 5rem;
+            text-align: center;
+            border: 1px solid gray;
+            position: relative;
+            .date{
+                position: absolute;
+                top: 5px;
+            right:5px;
+            font-size: 13px;
+            font-weight: 500;
+            background: #999999a9;
+            border-radius: 25px;
+            width: 1rem;
+            }
+        }
+    }
+}

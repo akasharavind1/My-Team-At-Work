@@ -1,0 +1,68 @@
+body {
+    background: linear-gradient(-45deg, #f4b39f, #fb8cb6, #7fceeb, #90fde4);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+        background-position: 0% 30%;
+    }
+    20% {
+        background-position: 100% 30%;
+    }
+    40% {
+        background-position: 0% 30%;
+    }
+  }
+  .tableStyle {
+    border-radius: 10px;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+  }
+  
+  .tableStyle thead tr {
+    background-color: #645DAC;
+    color: #ffffff;
+    text-align: left;
+  }
+  .tableStyle th,
+  .tableStyle td {
+      padding: 12px 15px;
+  } 
+  .tableStyle tbody tr {
+    border-bottom: 1px solid #dddddd;
+    border-radius: 10px;
+  }
+  
+  .tableStyle tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .tableStyle tbody tr:last-of-type {
+    border-bottom: 2px solid #645DAC;
+  }
+  
+  .tableStyle tbody tr.active-row {
+    font-weight: bold;
+    color: #0088D2;
+    border-radius: 10px;
+  
+  }
+  .tableStyle tbody tr:hover{
+    background-color: rgb(172, 169, 169);
+  }
+
+  .dialogBox{
+    width:750px;
+    height:100px;
+  }
+  .sub{
+    width:30px;
+    height:25px;
+  }

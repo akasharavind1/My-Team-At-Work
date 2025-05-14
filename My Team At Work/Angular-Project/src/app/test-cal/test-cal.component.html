@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="header">
+        <div class="day">Su</div>
+        <div class="day">M</div>
+        <div class="day">Tu</div>
+        <div class="day">We</div>
+        <div class="day">Th</div>
+        <div class="day">F</div>
+        <div class="day">Sa</div>
+    </div>
+    <div class="content">
+        <div class="date_box" *ngFor="let item of Object.keys(data);let i=index">
+           <div *ngIf="data[i]">
+           <span class="date"> {{data[i].date}}</span>
+            <span>{{data[i].employeeList?.length}}</span>
+            <ul>
+                <li *ngFor="let emp of data[i].employeeList">
+                    {{emp}}
+                </li>
+            </ul>
+           </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,181 @@
+<br>
+<!-- DATE PICKER: <input type="date" [value]="TodayDate" > -->
+<div class=""container>
+<table class="table">
+  <tr>
+      <th>First Name:</th>&nbsp;
+      <!-- <th>Id:</th>&nbsp; -->
+      <th>Last Name:</th>&nbsp;
+      <th>Email:</th>&nbsp;
+      <th>Employee Id:</th>&nbsp;
+      <th>No.of Days Selected </th>
+      <!-- <th>Flag</th>  -->
+  </tr>
+  <tr *ngIf="employee">
+  
+    <td>{{employee.firstName | uppercase}}
+      <a routerLink="/employee/{{employee.id}}"></a></td>&nbsp;
+      <td>{{employee.lastName | uppercase}}</td>&nbsp; 
+      <td>{{employee.mailID}}</td>&nbsp;
+      <td>{{employee.employeeId}}</td>&nbsp;
+      <td >{{daysSelectedCount}}</td>
+      <!-- <td>
+        <ng-container  [ngClass]="{'green': this.flag==0 ,
+        'yellow': this.flag==1 , 
+        'red': this.flag==2}" [ngSwitch]="true">
+          <ng-container *ngSwitchCase="this.flag==0"><img class="img" src="assets/img/greenflag.png"  ></ng-container>
+          <ng-container *ngSwitchCase="this.flag==1"><img class="img" src="assets/img/yellowflag.jpg" ></ng-container>
+          <ng-container *ngSwitchCase="this.flag==2"><img class="img" src="assets/img/redflag.jpg"  ></ng-container>
+        </ng-container>
+      </td>  -->
+  </tr>
+  </table>
+</div>
+
+<br>
+<br>
+<div class="container">
+  <h2  style="text-align: center;font-size: 40px; font-family:Chalkduster, fantasy ;font-weight:bold;text-shadow: 3px 3px #464EB8;">- {{monthName}} -</h2>
+  <div  class="header">
+      <div class="day">Sunday</div>
+      <div class="day">Monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thursday</div>
+      <div class="day">Friday</div>
+      <div class="day">Saturday</div>
+  </div>
+  <div class="content">
+      <div class="date_box"  *ngFor="let item of Object.keys(data);let i=index">
+         <div *ngIf="data[i]">
+         <span class="count"> {{data[i].date}}</span>
+    
+       <span  *ngIf="displayList[i-startingIndex]==1">
+        <img class="img" src="assets/img/1679464844148.png"  >
+       </span>
+         </div>
+      </div>
+      
+  </div>
+  <br>
+  <h5>Note: Ones that are marked "Available" refers to <b>{{employee.firstName}}'s</b> availability at the office</h5>
+</div>
+<br>
+
+
+  
+   ..
+
+   <!-- <button class="button" (click)="back()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+   BACK
+   </button>  -->
+
+   
+   <!-- <h2> Employee Availability:</h2>
+   <table>
+   <tr *ngFor="let employee of employee2">
+   <th><h3>{{employee.date   | date : 'fullDate' | uppercase}}</h3></th>
+   </tr>
+  </table> -->
+
+    <!-- <div style="float: right;">
+    <div><img class="img" src="assets/img/greenflag.png" > Great Attendance </div>
+    <div><img class="img" src="assets/img/yellowflag.jpg" > Attention required</div>
+    <div><img class="img" src="assets/img/redflag.jpg" > Low Attendance </div>
+    
+  </div> -->
+  <!-- <button class="button" (click  )="getDates()"> -->
+    <!-- CHECK SELECTED DATES
+   </button>  -->
+  <!-- <div class="calendar">
+    <header>
+      <button (click)="onPreviousMonth()"> Previous </button>
+      <h1>{{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}</h1>
+      <button (click)="onNextMonth()"> Next </button>
+    </header>
+  
+    <ul class="weekdays">
+      <li>
+        <abbr title="S">Sunday</abbr>
+      </li>
+      <li>
+        <abbr title="M">Monday</abbr>
+      </li>
+      <li>
+        <abbr title="T">Tuesday</abbr>
+      </li>
+      <li>
+        <abbr title="W">Wednesday</abbr>
+      </li>
+      <li>
+        <abbr title="T">Thursday</abbr>
+      </li>
+      <li>
+        <abbr title="F">Friday</abbr>
+      </li>
+      <li>
+        <abbr title="S">Saturday</abbr>
+      </li>
+    </ul>
+  
+    <ol class="day-grid">
+      <li class="month=prev"></li>
+      <li class="month=prev"></li>
+      <li class="month=prev"></li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+      <li>11</li>
+      <li>12</li>
+      <li>13</li>
+      <li>14</li>
+      <li>15</li>
+      <li>16</li>
+      <li>17</li>
+      <li>18</li>
+      <li>19</li>
+      <li>20</li>
+      <li>21</li>
+      <li>22</li>
+      <li>23</li>
+      <li>24</li>
+      <li>25</li>
+      <li>26</li>
+      <li>27</li>
+      <li>28</li>
+      <li>29</li>
+      <li>30</li>
+      <li class="month-next"></li>
+      <li class="month-next"></li>
+    </ol>
+      
+  </div> -->
+
+  
+<!-- 
+  <header>
+    <button (click)="onPreviousMonth()"> Previous </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h1>{{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button (click)="onNextMonth()"> Next </button>
+  </header>
+
+<br> -->
+
+<!-- <ul class="weekdays">
+  <li *ngFor='let weekDay of weekDaysName' class="day1">
+    {{ weekDay }}
+  </li>
+</ul>
+<ol class="day-grid" >
+  <li *ngFor='let day of monthDays' class="day1">
+    {{ day.number }}
+    <span class="circle purple" *ngIf="day.number == 10">5</span>
+  </li>
+</ol> -->

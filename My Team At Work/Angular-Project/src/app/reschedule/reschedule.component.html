@@ -1,0 +1,68 @@
+<p>reschedule works!</p>
+<form [formGroup]="rescheduleForm">
+<div class="container">
+    <!-- <h2  style="text-align: center;font-size: 40px; font-family:Chalkduster, fantasy ;font-weight:bold;text-shadow: 3px 3px #645DAC;">- {{monthName}} -</h2> -->
+    <div  class="header">
+        <div class="dayOff">Sunday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="dayOff">Saturday</div>
+    </div>
+    <div class="content">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+        <div class="date_box" *ngFor="let item of Object.keys(data);let i=index;">
+             <div *ngIf="data[i]">
+             
+            <input  type="radio" value={{data[i].date}} formControlName="dates">
+           
+           <span class="count"> {{data[i].date}}</span>
+           <!-- <span class="date">{{employeeCount[i-startingIndex]}}</span> -->
+            <span  class="empAvail">
+            <ul>
+                
+                    <!-- {{employeeName[i-startingIndex]}} -->
+                
+            </ul>
+            
+          </span>
+          <!-- <span  *ngIf="employeeCount" class="empAvail">
+            <ul>
+            <li *ngFor="let emp1 of employeeCount ">
+                {{data[i].emp1}}
+            </li>
+        </ul></span> -->
+           </div>
+        </div>
+    </div>
+    <h5>Note: Hover over a certain date to check availability.</h5>
+  </div>
+</form>
+
+<mat-form-field>
+  <input matInput [matDatepicker]="picker"  multiple>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+  <button>click to kahefkjasgku</button>
+
+  <div class="calendar">
+    <h1>{{ monthName }} {{ year }}</h1>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let weekday of weekdays">{{ weekday }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let week of weeks">
+          <td *ngFor="let day of week.days">
+            {{ day.dayOfMonth }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

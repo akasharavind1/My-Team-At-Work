@@ -1,0 +1,63 @@
+<body>
+&nbsp;<h1 class="signUp">Sign in:</h1>
+
+<form [formGroup]="addEmployeeForm">
+  
+    <div class="container" >
+      <br>
+      <label for="fname"><b>First Name::</b></label>
+      <input type="text" placeholder="Enter your First Name" name="fname" required formControlName="firstName">
+      <!-- <span style="color:red" *ngIf="!this.addEmployeeForm.get('firstName')?.value"  >Username is required.</span> -->
+      
+        <br>
+
+      <label for="lname"><b>Last Name:</b></label>
+      <input  type="text" placeholder="Enter your Last Name(Optional)" name="lname"  formControlName="lastName">
+  
+      
+      <label for="email"><b>Mail ID:</b></label>
+      <input required type="email" placeholder="Enter your Mail Id" name="mailID" required formControlName="mailID">
+      <!-- <span style="color:red" *ngIf="!this.addEmployeeForm.get('mailID')?.value"  >MailId is required.</span> -->
+      <br>
+  
+      <label for="employeeId"><b> Employee ID:</b></label>
+      <input required type="text" placeholder="Enter your Employee Id" name="email" required formControlName="employeeId">
+      <!-- <span style="color:red" *ngIf="!this.addEmployeeForm.get('employeeId')?.value"  >EmployeeId is required.</span> -->
+      <br>
+
+      <label for="email"><b> Team ID:</b></label>
+      <select required type="text" placeholder="Enter your Team Id" name="teamID" required formControlName="teamId">
+        <option value="DummyTeam1">TeamA</option>
+        <option value="DummyTeam2">TeamB</option>
+        <option value="DummyTeam2">TeamC</option>
+        </select>
+
+      <span style="color:red" *ngIf="this.addEmployeeForm.get('teamId')?.value ==null"  >Team Id is required.</span>
+      <br>
+  
+      <label for="newpsw"><b>New Password:</b></label>
+      <input required  [type]="show_button ? 'text' : 'password'" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" placeholder="Enter your new Password" name="newpsw" required formControlName="password" >
+      <!-- <span style="color:red" *ngIf="!this.addEmployeeForm.get('password')?.value"  >Password is required.</span> -->
+      <i [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" (click)="showPassword()"></i>
+      <br>
+      
+      <label for="confirmpsw"><b>Confirm Password:</b></label>
+      <input required [type]="show_button ? 'text' : 'password'" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" placeholder="Confirm your Password" name="confirmpsw" required formControlName="confirmPassword" >
+      <i [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" (click)="showPassword()"></i>
+      <span class="errormessage" *ngIf="this.addEmployeeForm.get('password')?.value != this.addEmployeeForm.get('confirmPassword')?.value ">
+        *Password doesn't match.
+      </span>
+      <br>
+      <br>
+
+      <label for="role"><b>ACCESS:</b></label>
+      <select formControlName="roles" id="role" name="role">
+        <option value="user">User</option>
+      </select>
+      <button (click)="onSubmit()"mat-raised-button color="primary" type="submit">Submit</button><br>
+      <!-- <button (click)="resetform(addEmployeeForm)"> RESET FORM</button> -->
+    </div>
+    
+  </form>
+</body>
+  

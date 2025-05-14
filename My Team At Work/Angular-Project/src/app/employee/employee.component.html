@@ -1,0 +1,253 @@
+<body>
+
+<button class="title" type="submit" style="float: right;"  (click)="openDialog1()" mat-raised-button color="warn"><mat-icon>home</mat-icon>LogOut</button>
+
+<h2 class="title" style="font-family:Chalkduster, fantasy"> &nbsp;&nbsp; Hi {{fn | uppercase}},  </h2>
+
+<!-- <select>
+  <option *ngFor="let item of employeeFirstName">{{item}}</option>
+</select> -->
+
+<div class="container">
+  <h2  style="text-align: center;font-size: 40px; font-family:Chalkduster, fantasy ;font-weight:bold;text-shadow: 3px 3px #645DAC;">- {{monthName}} -</h2>
+  <div  class="header">
+      <div class="dayOff">Sunday</div>
+      <div class="day">Monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thursday</div>
+      <div class="day">Friday</div>
+      <div class="dayOff">Saturday</div>
+  </div>
+  <div class="content">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+      <div class="date_box" *ngFor="let item of Object.keys(data);let i=index;">
+         <div *ngIf="data[i]">
+         <span class="count"> {{data[i].date}}</span>
+         <span class="date">{{employeeCount[i-startingIndex]}}</span>
+          <span  class="empAvail">
+          <ul>
+              
+                  {{employeeName[i-startingIndex]}}
+              
+          </ul>
+          
+        </span>
+        <!-- <span  *ngIf="employeeCount" class="empAvail">
+          <ul>
+          <li *ngFor="let emp1 of employeeCount ">
+              {{data[i].emp1}}
+          </li>
+      </ul></span> -->
+         </div>
+      </div>
+  </div>
+  <h5>Note: Hover over a certain date to check availability.</h5>
+</div>
+<br>
+<div >
+  <div style="float:left">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="buttonForSchedule" (click)="flag1()" [matMenuTriggerFor]="appMenu" mat-raised-button color="primary">
+  <span class="tooltiptext">Pick the dates, on which you will arrive at the Office</span>
+  &nbsp;<span class='material-icons'>schedule</span> MAKE SCHEDULE
+ 
+</button> 
+ <!-- <div class="matmenu" cdkDrag>  -->
+ <mat-menu class="matmenu"  #appMenu="matMenu" cdkDrag >
+    <div (click)="$event.stopPropagation()" >
+        <mat-calendar #calendar 
+           (selectedChange)="select($event,calendar)" 
+            [dateClass]="isSelected"
+          >
+        </mat-calendar>
+      </div>
+    <br>
+    <span style="font-family: 'Courier New', monospace; font-weight:bold;">Pick the dates, on which you will arrive at the office!</span>
+    <br><br><mat-divider></mat-divider>
+    <button mat-raised-button color="accent" class="btn">OK</button>
+</mat-menu> 
+<!-- </div> -->
+<!-- {{daysSelected|json}} -->
+
+
+<br><br>
+<table  class="zigzag" *ngIf="flagForDatesTable">
+  <thead>
+  <tr>
+    <th class="header">Dates selected:</th>
+    <th class="header"> Month:</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr *ngFor="let dates of daysSelected">
+    <td>{{dates}}</td>
+    <td> {{monthName}}</td>
+  </tr>
+</tbody>
+</table>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="submitBtn" (click)="openDialog2()" >
+  SUBMIT
+</button>
+
+<!-- <table>
+
+  <tr>
+    <th>date response:</th>
+  </tr>
+  <tr  *ngFor="let yt of employeeName">
+    <td>{{yt}}</td>
+  </tr>
+</table> -->
+
+
+<br>
+<br>
+<br>
+
+<div>
+<table class="tableStyle">
+  <thead>
+  <tr>
+    <th>First Name:</th>&nbsp;
+    <!-- <th>Id:</th>&nbsp; -->
+    <th>Last Name:</th>&nbsp;
+    <th>Email:</th>&nbsp;
+    <th>Employee Id:</th>&nbsp;
+     <!-- <th>Attendance %</th> -->
+    <!-- <th>Flag</th>  -->
+    <th>Roles:</th>
+    <th>Edit</th>
+</tr>
+</thead>
+
+<tbody>
+  <tr class="active-row" style="color:white; background-color: black;" *ngIf="employee">
+
+  
+    <td>{{employee.firstName | uppercase}}&nbsp;&nbsp;&nbsp;<i class="fa fa-address-card-o" style="font-size:24px;color:red"></i></td>&nbsp;
+    <!-- <td>{{employees.id}}</td>&nbsp; -->
+    
+    <td>{{employee.lastName | uppercase}}</td>&nbsp;
+
+    <td>{{employee.mailID}}</td>&nbsp;
+    <td>{{employee.employeeId}}</td>&nbsp;
+    <!-- <td> </td> -->
+    <!-- <td>
+      <ng-container [ngSwitch]="true">
+        <ng-container *ngSwitchCase="this.flag==0"><img class="img" src="assets/img/greenflag.png"  ></ng-container>
+        <ng-container *ngSwitchCase="this.flag==1"><img class="img" src="assets/img/yellowflag.jpg"  ></ng-container>
+        <ng-container *ngSwitchCase="this.flag==2"><img class="img" src="assets/img/redflag.jpg"  ></ng-container>
+      </ng-container>
+    </td>  -->
+    <td>{{employee.roles | uppercase}}</td>
+    <td><button routerLink="/employeeprofile/{{employee.id}}"><mat-icon>edit</mat-icon></button></td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div style="float:right">
+<button class="buttonForSchedule" routerLink="/detailemployee/{{employee.id}}" mat-raised-button color="primary">YOUR AVAILABILITY</button>
+<div class="list-choice" >
+
+  
+  <br>
+  <br>
+  <div class="list-choice-title">Check By Employee:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>arrow_drop_down_circle</mat-icon></div>
+  <div class="list-choice-objects">
+<table class="tableStyle">
+   
+  <thead>
+    <tr style="background-color: #4e45ac;  font-family: 'Courier New', monospace; font-weight:bold;">
+     <th>Employee Details:</th> 
+    </tr>
+  <tr>
+      <!-- <th>Name:</th> -->
+      <!-- <th>Id:</th>&nbsp; -->
+      <!-- <th>Last Name:</th>&nbsp; -->
+      <!-- <th>Email:</th>&nbsp;
+      <th>Employee Id:</th>&nbsp; -->
+      <!-- <th>Attendance %</th>
+      <th>Flag</th> -->
+      <!-- <th>Roles:</th> -->
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr class="active-row" *ngFor="let employee of checkByEmployee">
+  
+    
+      <td routerLink="/detailemployee/{{employee.id}}">{{employee.firstName | uppercase}}&nbsp;&nbsp;&nbsp;<span class='material-icons'>person</span></td>
+      <!-- <td>{{employees.id}}</td>&nbsp; -->
+      
+      <!-- <td>{{employee.lastName | uppercase}}</td>&nbsp; -->
+  
+      <!-- <td>{{employee.mailID}}</td>&nbsp;
+      <td>{{employee.employeeId}}</td>&nbsp; -->
+      <!-- <td> </td>
+      <td></td> -->
+      <!-- <td>{{employee.roles | uppercase}}</td> -->
+  </tr>
+  </tbody>
+  </table>
+</div>
+
+</div>
+
+</div>
+</div>
+<!-- <div style="float: right;">
+  <div><img class="img" src="assets/img/greenflag.png" > Great Attendance </div>
+  <div><img class="img" src="assets/img/yellowflag.jpg" > Attention required</div>
+  <div><img class="img" src="assets/img/redflag.jpg" > Low Attendance </div>
+  
+</div> -->
+
+  
+
+  <ng-template  #dialogRef>
+    <h3><b>Are you sure?</b></h3>
+    <button (click)="passTheDates()"  mat-raised-button color="primary">Confirm</button>
+    <button mat-raised-button color="warn" (click)="cancelDialog()">CANCEL</button>
+
+    
+</ng-template>
+  <br>
+  <br>    
+  <ngx-spinner
+  [name]="spinnerName"
+  [type]="spinnerType"
+  bdColor="rgba(0,0,0,0.5)"
+  size="large"
+  color="#fff"
+  [fullScreen]="true">
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
+  <router-outlet></router-outlet>
+
+  <!-- <div>
+  <button (click)="getDates()" mat-raised-button color="primary">
+   <tr><th>CHECK SELECTED DATES</th>
+  </button> 
+  <br>
+  <br>
+  <table>
+  <tr *ngFor="let employee22 of employeedates">
+  <td>{{employee22.date | date : 'fullDate' | uppercase}}</td>
+  </tr>
+</table>
+</div> -->
+<br>
+
+
+  <ng-template class="dialog" #dialogRef1>
+    <h2 >Are you sure?</h2>
+    <button (click)="logout()" mat-raised-button color="primary" >Logout</button>
+    <button (click)="cancelDialog()" mat-raised-button color="warn"> Cancel </button>
+  </ng-template>
+
+</body>
+  <router-outlet></router-outlet>

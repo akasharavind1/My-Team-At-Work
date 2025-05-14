@@ -1,0 +1,50 @@
+h1{
+    font-style: oblique;
+  }
+ 
+  input[type=text] {
+    border: 2px solid grey;
+    border-radius: 4px;
+  }
+
+ input[type=email] {
+   border: 2px solid grey;
+   border-radius: 4px;
+ }
+ input[type=password] {
+   border: 2px solid grey;
+   border-radius: 4px;
+ }
+ 
+ body {
+    font-family: Arial, Helvetica, sans-serif;
+    Overflow-x:scroll; 
+    }
+ form {border: 3px solid #f1f1f1;}
+ 
+ input {
+   width: 100%;
+   padding: 12px 20px;
+   margin: 8px 0;
+   display: inline-block;
+   border: 1px solid #ccc;
+   box-sizing: border-box;
+ }
+ 
+ button {
+   background-color: #939799;
+   color: black;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+ }
+
+ input.ng-invalid.ng-touched.ng-dirty{ 
+  border: 2px red solid;
+}
+.adminnote{
+  background-color: red;
+  color: #f1f1f1;
+}

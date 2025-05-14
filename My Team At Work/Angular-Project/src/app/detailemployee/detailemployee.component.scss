@@ -1,0 +1,240 @@
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  // border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+  
+}
+tr{
+  background-color: #0088D2;
+  color:white;
+}
+
+// tr:nth-child(even) {
+//   background-color: black;
+// }
+
+  .button {
+    border: none;
+    color: grey;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .button {
+    background-color: grey; 
+    color: black; 
+    border: 2px solid BLACK;
+  }
+  .button:hover {
+    background-color: #4CAF50;
+    color: black;
+  }
+  .img{
+    width:140px;
+    padding-right: 5px;
+  }
+
+  .date-red {
+    border-bottom: 10px solid #FF0000;
+}
+
+.date-green {
+    border-bottom: 10px solid #00FF00;
+}
+
+//flexbox
+
+header {
+  display: flex;
+  align-items: center;
+  font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1600 - 300)));
+  justify-content: center;
+  margin-bottom: 2em;
+  background: #000;
+  color: #fff;
+  min-height: 10vh;
+  text-align: center;
+}
+
+ul, ol {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1em;
+  margin: 0 auto;
+  max-width: 64em;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin-left: 0;
+  font-size: calc(16px + (21 - 16) * ((100vw - 300px) / (1600 - 300)));
+}
+
+ul.weekdays {
+  margin-bottom: 1em;
+}
+
+ul.weekdays li {
+  height: 4vw;
+}
+
+ol.day-grid li {
+  background-color: #eaeaea;
+  border: 1px solid #eaeaea;
+  height: 12vw;
+  max-height: 125px;
+}
+
+ul.weekdays abbr[title] {
+  border: none;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+ol.day-grid li:nth-child(1),
+ol.day-grid li:nth-child(2),
+ol.day-grid li:nth-child(3),
+ol.day-grid li:nth-child(34),
+ol.day-grid li:nth-child(35) {
+  background-color: #eaeaea;
+}
+
+@media all and (max-width: 800px) {
+  ul, ol {
+    grid-gap: .25em;
+  }
+  
+  ul.weekdays li {
+    font-size: 0;
+  }
+  
+  ul.weekdays > li abbr:after {
+      content: attr(title);
+      font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1600 - 300)));
+    text-align: center;
+    }
+}
+
+//html calendar
+.calendar1 {
+  width: 210px;
+
+  .day1 {
+    width: 30px;
+    display: inline-block;
+  }
+}
+
+
+li.circle {
+  border: 2px solid;
+  border-radius:25px;
+  span {
+      position: absolute;
+      top: -0.75rem;
+      right: -0.5rem;
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 1.2rem;
+      color: white;
+      border-radius: 50%;
+  }
+}
+.circle.purple {
+  border-color: purple;
+  span {
+      background: purple;
+  }
+}
+
+.container{
+  animation: movedown 1s linear 1;
+ 
+  .header{
+    
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .day{
+          flex: 1;
+          border-radius: 25px;
+          border: 2px solid transparent;
+          background: #464EB8;
+          color: #fff;
+          text-align: center;
+          width: 14.28%;
+      }
+  }
+  .content{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+      .date_box{
+          flex: 0 0 14.28%;
+          height: 5rem;
+          text-align: center;
+          border: 1px solid gray;
+          background-color:rgb(213, 234, 241);
+          position: relative;
+          .date{
+            position: absolute;
+            top: 8px;
+        right:5px;
+        font-size: 13px;
+        font-weight: 500;
+        background: #0088D2;
+        color: white;
+        border-radius: 25px;
+        width: 1.5rem;
+        height: 1.5rem;
+        }
+        .count{
+          position: absolute;
+          bottom: 8px;
+          left: 16px;
+          font-size: 35px; 
+          font-family: "Audiowide", sans-serif; 
+          text-shadow: 2px 2px #0088D2;
+        }
+          
+      }
+  }
+}
+.empAvail{
+  background-color: green;
+}
+body {
+  background: linear-gradient(-45deg, #f4b39f, #fb8cb6, #7fceeb, #90fde4);
+  background-size: 400% 400%;
+  animation: gradient 30s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 30%;
+  }
+  20% {
+      background-position: 100% 30%;
+  }
+  40% {
+      background-position: 0% 30%;
+  }
+}

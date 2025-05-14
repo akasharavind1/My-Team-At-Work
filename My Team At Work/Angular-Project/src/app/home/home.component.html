@@ -1,0 +1,52 @@
+<html>
+<head>
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+</head>
+<body>
+  <br>
+  <br>
+
+<h2 class="login">&nbsp; &nbsp;
+  &nbsp;
+  <mat-icon>account_circle</mat-icon>
+  <b>&nbsp;LOG IN</b> </h2>
+
+<form [formGroup]="validateemployee" >
+  <!-- <div [ngClass]="isdarktheme? 'dark-theme' : 'define-light-theme'"> -->
+
+  <div class="container" >
+<br>
+
+    <div >
+    <label for="uname"><b>Mail ID: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b></label>
+    <input required type="email" class="inputbox" placeholder="Enter your Mail Id" name="email" required formControlName="mailID">&nbsp;&nbsp;&nbsp;<mat-icon>account_box</mat-icon>
+    </div>
+    <div>
+    <label for="psw" ><b>Password:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input required type="password" class="inputbox" placeholder="Enter your Password" name="psw" required formControlName="password" > &nbsp;&nbsp;<mat-icon>lock_open</mat-icon>
+    </div>
+    <!-- <button (click)="password()">{{show ? 'Hide' : 'Show'}}</button> -->
+    <div class="errormessage" *ngIf="passwrong">
+      *Password is wrong.
+    </div>
+    <br><div class="detailswrong" *ngIf="detailswrong">
+      *Enter vaild credentials.
+    </div> 
+    <div>
+    <button type="submit" class="box-1" (click)="login()" > <mat-icon>supervisor_account</mat-icon>&nbsp;&nbsp;Login</button><br>
+    <button [routerLink]="'/addemployee'" type="submit" class="box-1" ><mat-icon>recent_actors</mat-icon>&nbsp;&nbsp;SignUp</button><br><br>
+  </div>
+</div>
+</form>
+<ngx-spinner
+  [name]="spinnerName"
+  [type]="spinnerType"
+  bdColor="rgba(0,0,0,0.5)"
+  size="large"
+  color="#fff"
+  [fullScreen]="false">
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<body>
+<br>
+<button type="submit" style="float: right;" (click)="openDialog1()" mat-raised-button color="warn" ><i  class="fa fa-sign-out" >Logout</i></button><br>
+<h1>Employee Details:</h1>
+<br>
+<form [formGroup]="addTeamForm">
+    <label for="teamId"><b>Team Id:</b></label>
+    <input type="text" formControlName="teamId" placeholder="Team Id" >
+    <label for="teamName"><b>Team Name:</b></label>
+    <input type="text" formControlName="teamName"  placeholder="Team Name" >
+<button (click)="addTeam()" mat-raised-button color="primary" >Add New Team</button>
+</form>
+<br>
+<div class="container">
+    <div class="search"> Filter By: 
+        <input type ="text" style="height: 50px;font-size:14pt;" size="100"  [(ngModel)]="searchtext" placeholder="     SEARCH">
+    </div>
+</div>
+<br>
+<br>
+<table class="table">
+<tr>
+    <th>First Name:</th>&nbsp;
+    <!-- <th>Id:</th>&nbsp; -->
+    <th>Last Name:</th>&nbsp;
+    <th>Email:</th>&nbsp;
+    <th>Employee Id:</th>&nbsp;
+    <!-- <th>No. of Selected</th> -->
+    <!-- <th>Flag</th>  -->
+    <th>Roles:</th>
+    <th>TeamID</th>
+</tr>
+
+<br>
+
+<tr *ngFor="let employee of employeeList | filter:searchtext">
+
+  
+      <td [title]="'Click the icon to view details'" >{{employee.firstName | uppercase}}&nbsp;&nbsp;&nbsp;<a routerLink="/detailemployee/{{employee.id}}"><i class="fa fa-address-card-o" style="font-size:24px;color:red"></i></a></td>&nbsp;
+      <!-- <td [title]="'Click the icon to view details'" >{{employee.firstName | uppercase}}&nbsp;&nbsp;&nbsp;<a routerLink="/detailemployee/{{employee.id}}" (click)="snack()"><i class="fa fa-address-card-o" style="font-size:24px;color:red"></i></a></td>&nbsp; -->
+    <!-- <td>{{employees.id}}</td>&nbsp; -->
+    
+    <td [title]="employee.lastName">{{employee.lastName | uppercase}}</td>&nbsp;
+
+    <td>{{employee.mailID}}</td>&nbsp;
+    <td>{{employee.employeeId}}</td>&nbsp;
+    <!-- <td>{{countt}}</td>&nbsp; -->
+    <!-- <td></td>  -->
+    <td>{{employee.roles | uppercase}}</td>
+    <td>{{employee.teamId | uppercase}}</td>
+    
+    <a [title]="'Click here to update'" routerLink="/update/{{employee.id}}" mat-raised-button color="primary"><i class="fa fa-edit">EDIT</i></a>
+    <td [title]="'Click here to delete '"><button mat-button class="delete button"(click)="openDialog(employee)"mat-raised-button color="primary"><i class="fa fa-trash" >&nbsp;</i>DELETE</button> 
+        </td>
+</tr>
+<!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+</table>
+
+<!-- <button mat-button (click)="openDialog()">opendialog</button> -->
+
+<ng-template  #dialogRef>
+    <h3><b>Are you sure?</b></h3>
+    <button (click)="delete({deleteEmployee})" mat-raised-button color="primary">Confirm</button>
+    <button mat-raised-button color="warn" (click)="cancelDialog()">CANCEL</button>
+
+    
+</ng-template>
+<ng-content></ng-content>
+<ngx-spinner
+  [name]="spinnerName"
+  [type]="spinnerType"
+  bdColor="rgba(0,0,0,0.5)"
+  size="large"
+  color="#fff"
+  [fullScreen]="true">
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
+
+
+<ng-template #dialogRef1>
+    <h2 >Are you sure?</h2>
+    <button (click)="logout()" mat-raised-button color="primary" >Logout</button>
+    <button (click)="cancelDialog()" mat-raised-button color="warn"> Cancel </button>
+
+    
+</ng-template>
+
+</body>
+
+
+<router-outlet></router-outlet>
+
